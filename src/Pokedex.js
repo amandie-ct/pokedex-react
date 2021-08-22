@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Pokelist from "./Pokelist";
 import { useState } from "react";
+import ButtonsBackground from "./ButtonsBackground";
 
 const Pokedex = () => {
     
@@ -18,10 +19,10 @@ const Pokedex = () => {
     }, []);
 
     return (
-        <main className="pokedex-main">
-            {pokemonList &&  <Pokelist pokemonlist={pokemonList}/>}
-
-        </main>
+            <main className="pokedex-main">
+                <ButtonsBackground/>
+                {pokemonList &&  <Pokelist pokemonlist={pokemonList}/>}
+            </main>
     );
 }
  
