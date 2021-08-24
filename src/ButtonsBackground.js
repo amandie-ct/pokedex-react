@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import CategoryButton from "./CategoryButton"
 
-const ButtonsBackground = () => {
+const ButtonsBackground = ({fetchByType, clearCategoryFilter}) => {
     const [pokemonType, setPokemonType] = useState(null);
     
     useEffect (() => {
@@ -20,9 +20,9 @@ const ButtonsBackground = () => {
             <h1>Filter by</h1>
             <div id="buttons-box">
                 {pokemonType && pokemonType.results.map((type, index) => {
-                    return <CategoryButton poketype={type} key={index} typeId={index+1} />
+                    return <CategoryButton poketype={type} key={index} catId={index+1} fetchByType={fetchByType} />
                 })}
-                <button id="clear-search-button">Clear</button>
+                <button id="clear-search-button" onClick={clearCategoryFilter}>Clear</button>
             </div>
         </nav>
     );
