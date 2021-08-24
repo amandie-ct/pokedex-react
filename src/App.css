@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   font-family: 'Quicksand', sans-serif;
+  color: #2b2d2f;
 }
 
 .App {
@@ -43,6 +44,7 @@
   margin-top: 60px;
   width: 80%;
   align-items: center;
+  justify-content: center;
   padding: 30px;
   z-index: 1;
 }
@@ -56,7 +58,6 @@
   padding: 5px 10px;
   margin: 15px 0px;
   border-radius: 5px;
-  color: #2b2d2f;
   font-weight: bolder;  
 }
 
@@ -87,24 +88,37 @@
 .pokelist-lista-pokemons{
   display: flex;
   flex-wrap: wrap;
-
 }
 
+#navbar{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#buttons-box{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid #b563ce; */
+}
 #category-buttons{
   color: #fff;
   border-radius: 25px;
   outline: none;
   border: none;
-  width: 100px;
-  padding: 5px 10px;
-  font-size: 16px;
+  width: 15%;
+  min-height: 35px;
+  padding: 5px 8px;
+  font-size: 18px;
   margin: 10px 5px;
 
 }
 
 #category-buttons:hover{
   cursor: pointer;
-
 }
 
 #clear-search-button{
@@ -114,9 +128,15 @@
   outline: none;
   border: 1px solid #b20000;
   width: 100px;
-  padding: 5px 10px;
+  min-height: 35px;
+  padding: 5px 8px;
   font-weight: bolder;
-  font-size: 16px;
+  font-size: 18px;
+}
+
+#clear-search-button:hover{
+  background-color: #B20000;
+  color: #fff;
 }
 
 .normal{
@@ -189,4 +209,10 @@
 
 .fairy{
   background-color: #ef97e6;
+}
+
+.icon-types{
+  height: auto;
+  width: 18px;
+  margin-right: 6px;
 }

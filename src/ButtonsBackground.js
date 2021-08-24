@@ -14,12 +14,16 @@ const ButtonsBackground = () => {
         })
     }, []);
 
+  
     return (
-        <nav>
-            {pokemonType && pokemonType.results.map((type, index) => {
-                return <CategoryButton poketype={type} key={index}/>
-            })}
-            <button id="clear-search-button">Clear</button>
+        <nav id="navbar">
+            <h1>Filter by</h1>
+            <div id="buttons-box">
+                {pokemonType && pokemonType.results.map((type, index) => {
+                    return <CategoryButton poketype={type} key={index} typeId={index+1} />
+                })}
+                <button id="clear-search-button">Clear</button>
+            </div>
         </nav>
     );
 }
