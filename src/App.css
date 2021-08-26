@@ -17,12 +17,11 @@
   background-image: url('./layered-waves-haikei.svg');
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: cover;
+  background-size: contain;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  overflow: auto;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -97,12 +96,15 @@
   align-items: center;
 }
 
+#navbar h1{
+  margin-bottom: 20px;
+}
 #buttons-box{
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid #b563ce; */
+
 }
 #category-buttons{
   color: #fff;
@@ -126,12 +128,13 @@
   color: #B20000;
   border-radius: 25px;
   outline: none;
-  border: 1px solid #b20000;
-  width: 100px;
+  border: 2px solid #b20000;
   min-height: 35px;
   padding: 5px 8px;
-  font-weight: bolder;
   font-size: 18px;
+  width: 15%;
+  font-size: 18px;
+  margin: 10px 5px;
 }
 
 #clear-search-button:hover{
@@ -211,6 +214,13 @@
   background-color: #ef97e6;
 }
 
+.unknown{
+  background-color: #968075;
+}
+
+.shadow{
+  background-color: #353e46;
+}
 .icon-types{
   height: auto;
   width: 18px;

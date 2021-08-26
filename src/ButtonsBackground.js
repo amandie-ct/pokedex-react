@@ -22,7 +22,7 @@ const ButtonsBackground = ({fetchByType, clearCategoryFilter}) => {
                 {pokemonType && pokemonType.results.map((type, index) => {
                     return <CategoryButton poketype={type} key={index} catId={index+1} fetchByType={fetchByType} />
                 })}
-                <button id="clear-search-button" onClick={clearCategoryFilter}>Clear</button>
+                <button id="clear-search-button" onClick={clearCategoryFilter}>clear</button>
             </div>
         </nav>
     );

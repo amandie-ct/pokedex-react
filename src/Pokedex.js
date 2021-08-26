@@ -5,22 +5,23 @@ import ButtonsBackground from "./ButtonsBackground";
 
 const Pokedex = () => {
 
-  
     const [pokemonList, setPokemonList] = useState(null);
-    // const [offset, setOffset] = useState(0);
+    const pokemonEndpoint = 'https://pokeapi.co/api/v2/pokemon/';
+    const [nextPokemon, setNextPokemon] = useState(null);
 
-    const getPokemonList = () => {
-        fetch('https://pokeapi.co/api/v2/pokemon/')
+    const getPokemonList = (url) => {
+        fetch(url)
         .then(res => {
             return res.json()
         })
         .then(data => {
             setPokemonList(data.results);
+            setNextPokemon(data.next);
         })
     }
 
     useEffect(() => {
-        getPokemonList();
+        getPokemonList(pokemonEndpoint);
     }, []);
 
     const fetchPokemonListByType = (typeId) => {
@@ -32,13 +33,27 @@ const Pokedex = () => {
     }
 
     const clearCategoryFilter = () => {
-        getPokemonList();
+        getPokemonList(pokemonEndpoint);
     }
+
+    const loadMorePokemon = () => {
+        fetch(nextPokemon)
+        .then(res => {
+            return res.json()
+            })
+        .then(data => {
+            setPokemonList([...pokemonList, ...data.results])
+            setNextPokemon(data.next)
+        });
+    }
+
+    const hasMorePokemon = (nextPokemon !== null);
 
     return (
             <main className="pokedex-main">
                 <ButtonsBackground clearCategoryFilter={clearCategoryFilter} fetchByType={fetchPokemonListByType}/>
-                {pokemonList &&  <Pokelist pokemonlist={pokemonList}/>}
+                {pokemonList &&  
+                <Pokelist pokemonlist={pokemonList} loadMorePokemon={loadMorePokemon} hasMorePokemon={hasMorePokemon}/>}
             </main>
     );
 }
