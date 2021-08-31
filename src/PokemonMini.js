@@ -1,6 +1,7 @@
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const PokemonMini = ({pokemonData}) => {
 
@@ -15,7 +16,7 @@ const PokemonMini = ({pokemonData}) => {
                 <p id="number">#{id}</p>
                 <p id="name">{pokemonData.name}</p>
             </div>
-            <p><FontAwesomeIcon icon={faChevronRight}/></p>
+            <button><Link to={`/pokemon/${id}`}><FontAwesomeIcon icon={faChevronRight}/></Link></button>
         </div>
     );
 }

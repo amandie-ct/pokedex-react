@@ -14,10 +14,12 @@
 
 .container{
   background-color: #fcfcfc;
+  height: 100%;
+  width: 100%;
   background-image: url('./layered-waves-haikei.svg');
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: contain;
+  background-size: 100%;
   top: 0;
   left: 0;
   bottom: 0;
@@ -26,9 +28,12 @@
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
-
 }
 
+#pokedex-container{
+  display: flex;
+  justify-content: center;
+}
 #wallpaper-logo{
   margin-top: 25px;
   height: 150px;
@@ -225,4 +230,66 @@
   height: auto;
   width: 18px;
   margin-right: 6px;
+}
+
+#single-name{
+  text-transform: capitalize;
+}
+
+#stat-container{
+  width: 300px;
+  background-color: #cedadf;
+  height: 25px;
+}
+
+#stat{
+  background-color:  #e8544e;
+  height: 25px;
+}
+
+.pokedex-single{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.statistics{
+  grid-column: 3 / 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #d78555;
+}
+
+.characteristics{
+  grid-column: 2 / 3;
+}
+
+.characteristics > * {
+  margin-bottom: 15px;
+}
+.characteristics h2{
+  color: #c4cccf;
+}
+
+.characteristics h3{
+  color: #e8544e;
+}
+
+.characteristics span{
+  color: #c4cccf;
+}
+#single-pokemon-img{
+  grid-column: 1 / 2;
+}
+
+.horizontal-rule{
+  height: 1px;
+  background-color: #cedadf;
+  border: none;
+}
+
+#stat-name{
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
 }
