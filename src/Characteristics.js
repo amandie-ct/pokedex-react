@@ -2,13 +2,18 @@ const Characteristics = ({baseExperience, height, weight, abilities}) => {
     return (
         <section className="characteristics">
             <h3>Characteristics</h3>
-            <p><span>Base experience:&nbsp;</span>{baseExperience}</p>
+            <p>Base experience:&nbsp;<span>{baseExperience}</span></p>
             <hr className="horizontal-rule"></hr>
-            <p><span>Height:&nbsp;</span>{height/10}</p>
+            <p>Height:&nbsp;<span>{height/10}&nbsp;m</span></p>
             <hr className="horizontal-rule"></hr>
-            <p><span>Weight:&nbsp;</span>{weight/10}</p>
+            <p>Weight:&nbsp;<span>{weight/10}&nbsp;kg</span></p>
             <hr className="horizontal-rule"></hr>
-            {/* <p>Abilities:<span>{abilities}</span></p> */}
+            <p>Abilities:</p>
+                <div className="ability-container">
+                    {abilities && abilities.map((ability) => {
+                        return <div className="ability">{ability.ability.name}</div>
+                    })}
+                </div>
         </section>
     );
 }

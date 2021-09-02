@@ -5,6 +5,10 @@ import MainInfo from "./MainInfo";
 import { useParams } from "react-router";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import CategoryButton from "./CategoryButton";
 
 const SinglePokemon = () => {
 
@@ -17,6 +21,7 @@ const SinglePokemon = () => {
     const [pokemonNumber, setPokemonNumber] = useState(null);
     const [pokemonName, setPokemonName] = useState(null);
     const [stats, setStats] = useState(null);
+    const [pokemonType, setPokemonType] = useState(null);
 
     let baseUrl = `https://pokeapi.co/api/v2/pokemon/${id}/`;
 
@@ -36,6 +41,8 @@ const SinglePokemon = () => {
             setPokemonName(data.name);
             setPokemonNumber(data.id);
             setStats(data.stats);
+            setAbilities(data.abilities);
+            setPokemonType(data.types);
         })
         .catch(err => {
             console.log(err.message)
@@ -47,16 +54,27 @@ const SinglePokemon = () => {
     }, [])
 
     return (
-        <div className="pokedex-main">
-            <div className="pokedex-single">
-                <MainInfo pokemonName={pokemonName} pokemonNumber={pokemonNumber}/>
-                <SinglePokemonImg singleImg={pokemonImg}/>
-                <Characteristics baseExperience={baseExperience} height={height} weight={weight}
-                abilities={abilities}/>
-                <div class="statistics">
-                    {stats && stats.map((stat) => {
-                        return <Stats stat={stat}/>
+        <div className="pokedex-container">
+            <div className="single-pokemon-main">
+                <div className="pokedex-single">
+                    <Link to={"/"}><button id="back">
+                        <FontAwesomeIcon icon={faChevronLeft}/>
+                        &nbsp;Back</button>
+                    </Link>
+                    <SinglePokemonImg id={id} pokemonName={pokemonName}/>
+                    <MainInfo pokemonName={pokemonName} pokemonNumber={pokemonNumber}/>
+                    <div id="single-category">{pokemonType && pokemonType.map((type) => {
+                        return <CategoryButton poketype={type.type}/>
                     })}
+                    </div>
+                    <Characteristics baseExperience={baseExperience} height={height} weight={weight}
+                    abilities={abilities}/>
+                    <div class="statistics">
+                        <h1 id="stats-title">Stats</h1>
+                        {stats && stats.map((stat) => {
+                            return <Stats stat={stat}/>
+                        })}
+                    </div>
                 </div>
             </div>
         </div>

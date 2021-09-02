@@ -77,7 +77,7 @@ const Pokedex = () => {
     const hasMorePokemon = (nextPokemon !== null);
 
     return (
-        <div id="pokedex-container">
+        <div className="pokedex-container">
             <main className="pokedex-main">
                 <ButtonsBackground clearCategoryFilter={clearCategoryFilter} 
                 fetchByType={fetchPokemonListByType}/>

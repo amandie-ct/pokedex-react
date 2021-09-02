@@ -16,7 +16,7 @@ const PokemonMini = ({pokemonData}) => {
                 <p id="number">#{id}</p>
                 <p id="name">{pokemonData.name}</p>
             </div>
-            <button><Link to={`/pokemon/${id}`}><FontAwesomeIcon icon={faChevronRight}/></Link></button>
+            <button id="chevron"><Link to={`/pokemon/${id}`}><FontAwesomeIcon icon={faChevronRight}/></Link></button>
         </div>
     );
 }
