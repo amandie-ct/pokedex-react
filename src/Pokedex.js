@@ -47,6 +47,7 @@ const Pokedex = () => {
             })
             .then(data => {
                 setPokemonList(data.pokemon.map((item) => item.pokemon))
+                setIsPending(false);
             })
             .catch(err => {
                 console.log(err.message)
@@ -82,7 +83,7 @@ const Pokedex = () => {
                 <ButtonsBackground clearCategoryFilter={clearCategoryFilter} 
                 fetchByType={fetchPokemonListByType}/>
                 
-                {isPending ? <div><img id="loading-icon" src={"./assets/pokeball.png"}/></div> :
+                {isPending ? <div className="spining-pokeball"><img id="loading-icon" src={"./assets/pokeball.png"}/></div> :
                 <Pokelist pokemonList={pokemonList} loadMorePokemon={loadMorePokemon} 
                 hasMorePokemon={hasMorePokemon}/>}
             </main>

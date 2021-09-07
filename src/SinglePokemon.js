@@ -63,12 +63,12 @@ const SinglePokemon = () => {
                     </Link>
                     <SinglePokemonImg id={id} pokemonName={pokemonName}/>
                     <MainInfo pokemonName={pokemonName} pokemonNumber={pokemonNumber}/>
+                    <Characteristics baseExperience={baseExperience} height={height} weight={weight}
+                    abilities={abilities}/>
                     <div id="single-category">{pokemonType && pokemonType.map((type) => {
                         return <CategoryButton poketype={type.type}/>
                     })}
                     </div>
-                    <Characteristics baseExperience={baseExperience} height={height} weight={weight}
-                    abilities={abilities}/>
                     <div class="statistics">
                         <h1 id="stats-title">Stats</h1>
                         {stats && stats.map((stat) => {
