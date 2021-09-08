@@ -48,6 +48,7 @@ const Pokedex = () => {
             .then(data => {
                 setPokemonList(data.pokemon.map((item) => item.pokemon))
                 setIsPending(false);
+                setNextPokemon(null);
             })
             .catch(err => {
                 console.log(err.message)
@@ -61,17 +62,20 @@ const Pokedex = () => {
 
     // carregar mais pokemons a medida que a página é rolada
     const loadMorePokemon = () => {
-        fetch(nextPokemon)
-        .then(res => {
-            if (!res.ok){
-                throw Error('Não foi possível encontrar o conteúdo');
-            }
-            return res.json()
-            })
-        .then(data => {
-            setPokemonList([...pokemonList, ...data.results])
-            setNextPokemon(data.next)
-        });
+        if (nextPokemon) {
+            fetch(nextPokemon)
+            .then(res => {
+                if (!res.ok){
+                    throw Error('Não foi possível encontrar o conteúdo');
+                }
+                return res.json()
+                })
+            .then(data => {
+                setPokemonList([...pokemonList, ...data.results])
+                setNextPokemon(data.next)
+            });
+        }
+
     }
 
     // enquanto next pokemon não for null, adicionar mais pokemons na página
