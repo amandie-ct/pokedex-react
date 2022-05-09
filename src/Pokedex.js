@@ -87,7 +87,9 @@ const Pokedex = () => {
                 <ButtonsBackground clearCategoryFilter={clearCategoryFilter} 
                 fetchByType={fetchPokemonListByType}/>
                 
-                {isPending ? <div className="spining-pokeball"><img id="loading-icon" src={"./assets/pokeball.png"}/></div> :
+                {isPending ? <div className="spining-pokeball">
+                        <img id="loading-icon" src={"./assets/pokeball.png"} alt="rolling pokeball"/>
+                    </div> :
                 <Pokelist pokemonList={pokemonList} loadMorePokemon={loadMorePokemon} 
                 hasMorePokemon={hasMorePokemon}/>}
             </main>
